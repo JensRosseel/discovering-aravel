@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', [Controller::class, 'hello']);
+Route::get('/hello', [Controller::class, 'hello'])->name('hello');
+
+Route::get('/hello2', [Controller::class, 'hello2'])->name('hello2');

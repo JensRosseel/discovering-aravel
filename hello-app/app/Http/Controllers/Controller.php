@@ -15,5 +15,10 @@ class Controller extends BaseController
     {
         return view('hello');
     }
+
+    public function hello2()
+    {
+        return view('hello2');
+    }
 }
 
