@@ -20,5 +20,20 @@ class Controller extends BaseController
     {
         return view('hello2');
     }
+
+    public function bladeView()
+    {
+        return view('bladeView');
+    }
+
+    public function bladeViewPost()
+    {
+        request()->validate([
+            'name' => 'required',
+            'age' => 'required|numeric'
+        ]);
+        
+        dd('hello ' . request()->name . ', who is ' . request()->age . ' years old!');
+    }
 }
 

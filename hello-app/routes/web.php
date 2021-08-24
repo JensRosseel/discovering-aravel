@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/hello', [Controller::class, 'hello'])->name('hello');
 
 Route::get('/hello2', [Controller::class, 'hello2'])->name('hello2');
+
+Route::get('/bladeView', [Controller::class, 'bladeView'])->name('bladeView');
+
+Route::post('/bladeView', [Controller::class, 'bladeViewPost']);
