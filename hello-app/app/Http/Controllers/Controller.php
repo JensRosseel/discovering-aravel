@@ -31,6 +31,11 @@ class Controller extends BaseController
         request()->validate([
             'name' => 'required',
             'age' => 'required|numeric'
+        ],
+        [
+            'name.required' => 'You have to type a name!',
+            'age.required' => 'You have to type an age!',
+            'age.numeric' => 'Age has to be numeric'
         ]);
         
         dd('hello ' . request()->name . ', who is ' . request()->age . ' years old!');

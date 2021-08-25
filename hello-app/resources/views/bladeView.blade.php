@@ -9,8 +9,18 @@
 </head>
 <body>
     @include('includes.header')
-
+    
     @section('content')
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <p><strong>Opps Something went wrong</strong></p>
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    </div>
+    @endif
     <form method="POST" action="" class="align-center">
         @csrf
         <div class="form-group">
