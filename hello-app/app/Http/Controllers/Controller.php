@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Card;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -39,6 +40,35 @@ class Controller extends BaseController
         ]);
         
         dd('hello ' . request()->name . ', who is ' . request()->age . ' years old!');
+    }
+
+    public function eloquentTest()
+    {
+        return view('eloquentTest');
+    }
+
+    public function eloquentTestPost()
+    {
+        request()->validate([
+            'name' => 'required',
+            'cardtype' => 'required',
+            'rarity' => 'required'
+        ],
+        [
+            'name.required' => 'You have to type a name!',
+            'cardtype.required' => 'You have to type a cardtype!',
+            'rarity.required' => 'rarity has to be stated!'
+        ]);
+
+        $card = new Card;
+        $card->name = request()->name;
+        $card->cardtype = request()->cardtype;
+        $card->rarity = request()->rarity;
+
+        $card->save();
+
+        return view('eloquentTest');
+        
     }
 }
 

@@ -23,5 +23,7 @@ Route::get('/hello', [Controller::class, 'hello'])->name('hello');
 Route::get('/hello2', [Controller::class, 'hello2'])->name('hello2');
 
 Route::get('/bladeView', [Controller::class, 'bladeView'])->name('bladeView');
-
 Route::post('/bladeView', [Controller::class, 'bladeViewPost']);
+
+Route::get('/eloquentTest', [Controller::class, 'eloquentTest'])->name('eloquentTest');
+Route::post('/eloquentTest', [Controller::class, 'eloquentTestPost']);
